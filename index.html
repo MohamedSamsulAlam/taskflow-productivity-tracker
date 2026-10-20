@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow is a responsive productivity tracker for organizing tasks.">
+  <title>TaskFlow | Productivity Tracker</title>
+  <link rel="icon" type="image/svg+xml" href="icon1.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <p class="eyebrow">PERSONAL PRODUCTIVITY</p>
+        <h1>TaskFlow</h1>
+        <p class="subtitle">Organize your work. Achieve your goals.</p>
+      </div>
+      <div class="today" id="todayDate" aria-live="polite"></div>
+    </header>
+
+    <section class="stats" aria-label="Task summary">
+      <article class="stat-card">
+        <p>Total Tasks</p>
+        <h2 id="totalTasks">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Active</p>
+        <h2 id="pendingTasks">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Completed</p>
+        <h2 id="completedTasks">0</h2>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PLAN YOUR DAY</p>
+          <h2 id="formHeading">Add a new task</h2>
+        </div>
+      </div>
+      <form id="taskForm">
+        <div class="field title-field">
+          <label for="taskTitle">Task title</label>
+          <input id="taskTitle" name="taskTitle" type="text" maxlength="140"
+                 placeholder="e.g. Finish portfolio homepage" required>
+        </div>
+        <div class="field">
+          <label for="taskCategory">Category</label>
+          <select id="taskCategory" name="taskCategory">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Study">Study</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="taskDate">Due date</label>
+          <input id="taskDate" name="taskDate" type="date" required>
+        </div>
+        <div class="form-actions">
+          <button class="primary-button" type="submit" id="submitButton">+ Add task</button>
+          <button class="secondary-button" type="button" id="cancelEditButton" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel task-panel">
+      <div class="task-toolbar">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h2>My tasks</h2>
+        </div>
+        <div class="toolbar-controls">
+          <label class="sr-only" for="taskSearch">Search tasks</label>
+          <input id="taskSearch" type="search" placeholder="Search tasks..." autocomplete="off">
+          <label class="sr-only" for="filterTasks">Filter tasks</label>
+          <select id="filterTasks">
+            <option value="All">All tasks</option>
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+      <div id="taskList" class="task-list" aria-live="polite"></div>
+      <div id="emptyMessage" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <h3>No tasks yet</h3>
+        <p>Add your first task above and make today productive.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>TaskFlow · Personal Productivity Tracker</p>
+      <p>Your tasks are stored locally in this browser.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
